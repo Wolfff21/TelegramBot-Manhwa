@@ -1,3 +1,6 @@
 flask
 requests
 pyppeteer
+pyrogram
+tgcrypto
+img2pdf
