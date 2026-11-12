@@ -4,3 +4,4 @@ pyppeteer
 pyrogram
 tgcrypto
 img2pdf
+Pillow
