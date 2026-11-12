@@ -240,5 +240,16 @@ def setup_webhook():
 
 if __name__ == '__main__':
     setup_webhook()
-    port = int(os.environ.get("PORT", "10000"))
+    
+    # Manejo seguro del puerto para Docker/Render
+    port_env = os.environ.get("PORT", "10000")
+    if not port_env:
+        port_env = "10000"
+        
+    try:
+        port = int(port_env)
+    except ValueError:
+        port = 10000
+        logger.warning("⚠️ Puerto no válido, usando 10000 por defecto")
+        
     app.run(host='0.0.0.0', port=port)
