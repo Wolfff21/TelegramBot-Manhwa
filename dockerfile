@@ -1,4 +1,4 @@
-# Usamos una imagen oficial de Python 3.12, que es compatible con todas tus librerías
+# Usamos una imagen oficial de Python 3.12
 FROM python:3.12-slim
 
 # Evita que Python escriba archivos .pyc y permite ver los logs en tiempo real
@@ -11,7 +11,7 @@ ENV PORT=10000
 # Directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Instalamos las dependencias del sistema que necesita Chromium (para Pyppeteer)
+# Instalamos dependencias del sistema: Chromium (para Pyppeteer) y herramientas de compilación (para tgcrypto)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     chromium \
     fonts-liberation \
@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxkbcommon0 \
     libxrandr2 \
     xdg-utils \
+    build-essential \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiamos e instalamos los requerimientos de Python
