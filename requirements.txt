@@ -4,4 +4,5 @@ pyppeteer
 pyrogram
 tgcrypto
 img2pdf
-Pillowpyppeteer-stealth
+Pillow
+pyppeteer-stealth
